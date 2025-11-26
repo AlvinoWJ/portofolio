@@ -7,6 +7,7 @@ export default function Home() {
     name: "Alvino Dwi Nengku Wijaya",
     title: "Fullstack Developer",
     subtitle: "Creating Seamless Web Experiences",
+    imageSrc: "/alvino.png",
     profileInfo: {
       residence: "Indonesia",
       city: "Surabaya",
@@ -14,20 +15,35 @@ export default function Home() {
     },
 
     socialLinks: [
-      { icon: "linkedin" as const, href: "#", label: "LinkedIn" },
-      { icon: "github" as const, href: "#", label: "GitHub" },
-      { icon: "instagram" as const, href: "#", label: "Instagram" },
-      { icon: "facebook" as const, href: "#", label: "Facebook" },
-      { icon: "twitter" as const, href: "#", label: "Twitter" },
+      {
+        icon: "linkedin" as const,
+        href: "www.linkedin.com/in/alvinowj",
+        label: "LinkedIn",
+      },
+      {
+        icon: "github" as const,
+        href: "https://github.com/AlvinoWJ",
+        label: "GitHub",
+      },
+      {
+        icon: "instagram" as const,
+        href: "https://www.instagram.com/ino_alv/",
+        label: "Instagram",
+      },
     ],
   };
   return (
-    <main className="min-h-screen">
-      <SidebarProfile {...profileData} />
-      <div className="ml-[25rem]">
-        <HeroSection />
-
-        <ExperienceSection />
+    <main className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8 pt-8 md:px-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[350px_1fr] lg:gap-12">
+          <div className="relative">
+            <SidebarProfile {...profileData} />
+          </div>
+          <div className="flex flex-col gap-16">
+            <HeroSection />
+            <ExperienceSection />
+          </div>
+        </div>
       </div>
     </main>
   );
