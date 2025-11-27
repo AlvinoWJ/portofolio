@@ -1,12 +1,13 @@
 import { HeroSection } from "./components/hero_section";
 import { ExperienceSection } from "./components/experience_section";
 import { SidebarProfile } from "./components/sidebar_profile";
+import { ProjectsSection } from "./components/projects_section";
 
 export default function Home() {
   const profileData = {
     name: "Alvino Dwi Nengku Wijaya",
     title: "Fullstack Developer",
-    subtitle: "Creating Seamless Web Experiences",
+    subtitle: "",
     imageSrc: "/alvino.png",
     profileInfo: {
       residence: "Indonesia",
@@ -41,6 +42,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-16">
             <HeroSection />
+            <ProjectsSection />
             <ExperienceSection />
           </div>
         </div>

@@ -68,6 +68,9 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         wave: "wave 2s ease-in-out infinite",
       },
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

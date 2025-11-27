@@ -13,7 +13,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg hover:bg-secondary transition-colors duration-300"
+      className="p-2 rounded-lg border hover:bg-secondary transition-colors duration-300"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (

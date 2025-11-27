@@ -61,11 +61,14 @@ export function SidebarProfile({
 }: SidebarProfileProps) {
   return (
     <aside className="w-full lg:sticky lg:top-8 h-fit">
-      <div className="bg-card border border-border rounded-2xl p-6 shadow-lg">
-        {/* Profile Image */}
-        <div className="relative w-32 h-32 mx-auto mb-4">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary to-teal-500 rounded-full blur-xl opacity-50"></div>
-          <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary">
+      <div className="bg-card border border-border rounded-2xl p-6 shadow-lg relative">
+        <div className="absolute top-4 right-4 z-10">
+          <ThemeToggle />
+        </div>
+
+        <div className="relative w-32 h-32 mx-auto mb-6 mt-2">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-teal-500 rounded-2xl blur-xl opacity-50"></div>
+          <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-primary/50 shadow-2xl">
             {imageSrc ? (
               <Image
                 src={imageSrc}
@@ -77,13 +80,7 @@ export function SidebarProfile({
               />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-teal-400 to-primary flex items-center justify-center">
-                <svg
-                  className="w-20 h-20 text-background"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                </svg>
+                <span className="text-4xl font-bold text-white">AW</span>
               </div>
             )}
           </div>
@@ -94,11 +91,6 @@ export function SidebarProfile({
           <h2 className="text-xl font-bold text-foreground mb-1">{name}</h2>
           <p className="text-sm text-muted-foreground">{title}</p>
           <p className="text-sm text-muted-foreground">{subtitle}</p>
-        </div>
-
-        {/* Theme Toggle */}
-        <div className="flex justify-center mb-6">
-          <ThemeToggle />
         </div>
 
         {/* Profile Info */}
