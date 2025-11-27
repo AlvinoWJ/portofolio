@@ -2,27 +2,38 @@
 
 import React from "react";
 import Typewriter from "typewriter-effect";
+import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
     <section id="home" className="w-full">
       {/* Wrapper Card */}
-      <div className="bg-card border border-border rounded-2xl p-8 lg:p-12 shadow-lg relative group">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-
-        {/* Ubah grid menjadi flex untuk kontrol tengah yang lebih mudah */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="p-8 md:p-12 relative group"
+      >
         <div className="flex flex-col items-center justify-center gap-12">
-          <div className="flex flex-col gap-6 z-10 items-center w-full">
-            {/* Title - Pastikan text-center */}
-            <div className="space-y-2 text-center">
-              <h1 className="text-xl lg:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
-                Welcome, To My Portfolio!
+          <div className="flex flex-col gap-6 z-10 items-center w-full mt-10">
+            {/* Title */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-2 text-center"
+            >
+              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
+                Welcome to my Portofolio!
               </h1>
-            </div>
+            </motion.div>
 
-            {/* Code Block Style Text - Hapus lg:text-left, gunakan text-center */}
-            <div className="text-muted-foreground font-mono text-sm lg:text-base font-medium text-center leading-relaxed">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-muted-foreground font-mono text-sm lg:text-base font-medium text-center leading-relaxed"
+            >
               <span className="text-primary font-bold mr-2">&lt;code&gt;</span>
 
               <span className="">
@@ -45,10 +56,19 @@ export function HeroSection() {
               </span>
 
               <span className="text-primary font-bold ml-2">&lt;/code&gt;</span>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center w-full sm:w-auto">
-              <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 mt-4 justify-center w-full sm:w-auto"
+            >
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+              >
                 Lihat Proyek
                 <svg
                   className="w-5 h-5"
@@ -63,11 +83,11 @@ export function HeroSection() {
                     d="M19 9l-7 7-7-7"
                   />
                 </svg>
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

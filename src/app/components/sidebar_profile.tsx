@@ -3,6 +3,7 @@
 import React from "react";
 import { ThemeToggle } from "./theme/theme_toggle";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface SocialLink {
   icon: "github" | "linkedin" | "instagram";
@@ -22,7 +23,6 @@ interface SidebarProfileProps {
   imageSrc?: string;
   subtitle: string;
   profileInfo: ProfileInfo;
-
   socialLinks: SocialLink[];
 }
 
@@ -51,6 +51,26 @@ const SocialIcon = ({ icon }: { icon: SocialLink["icon"] }) => {
   }
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 export function SidebarProfile({
   name,
   title,
@@ -61,12 +81,20 @@ export function SidebarProfile({
 }: SidebarProfileProps) {
   return (
     <aside className="w-full lg:sticky lg:top-8 h-fit">
-      <div className="bg-card border border-border rounded-2xl p-6 shadow-lg relative">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="bg-card border border-border rounded-2xl p-6 shadow-lg relative"
+      >
         <div className="absolute top-4 right-4 z-10">
           <ThemeToggle />
         </div>
 
-        <div className="relative w-32 h-32 mx-auto mb-6 mt-2">
+        <motion.div
+          variants={itemVariants}
+          className="relative w-32 h-32 mx-auto mb-6 mt-2"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-primary to-teal-500 rounded-2xl blur-xl opacity-50"></div>
           <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-primary/50 shadow-2xl">
             {imageSrc ? (
@@ -84,55 +112,60 @@ export function SidebarProfile({
               </div>
             )}
           </div>
-        </div>
+        </motion.div>
 
         {/* Name and Title */}
-        <div className="text-center mb-4">
+        <motion.div variants={itemVariants} className="text-center mb-4">
           <h2 className="text-xl font-bold text-foreground mb-1">{name}</h2>
           <p className="text-sm text-muted-foreground">{title}</p>
           <p className="text-sm text-muted-foreground">{subtitle}</p>
-        </div>
+        </motion.div>
 
         {/* Profile Info */}
-        <div className="space-y-3 mb-6 pb-6 border-b border-border">
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Residence:</span>
-            <span className="text-foreground font-medium">
-              {profileInfo.residence}
-            </span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">City:</span>
-            <span className="text-foreground font-medium">
-              {profileInfo.city}
-            </span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Age:</span>
-            <span className="text-foreground font-medium">
-              {profileInfo.age}
-            </span>
-          </div>
-        </div>
+        <motion.div
+          variants={itemVariants}
+          className="space-y-3 mb-6 pb-6 border-b border-border"
+        >
+          {[
+            { label: "Residence:", value: profileInfo.residence },
+            { label: "City:", value: profileInfo.city },
+            { label: "Age:", value: profileInfo.age },
+          ].map((info, index) => (
+            <div key={index} className="flex justify-between text-sm">
+              <span className="text-muted-foreground">{info.label}</span>
+              <span className="text-foreground font-medium">{info.value}</span>
+            </div>
+          ))}
+        </motion.div>
 
-        {/* Social Links with GRID */}
-        <div className="grid grid-cols-3 justify-items-center mb-6">
-          {socialLinks.map((link) => (
-            <a
+        {/* Social Links */}
+        <motion.div
+          variants={itemVariants}
+          className="grid grid-cols-3 justify-items-center mb-6"
+        >
+          {socialLinks.map((link, index) => (
+            <motion.a
               key={link.label}
               href={link.href}
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.95 }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
               aria-label={link.label}
               target="_blank"
               rel="noopener noreferrer"
             >
               <SocialIcon icon={link.icon} />
-            </a>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Download CV Button MOVED HERE */}
-        <button className="w-full px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors duration-300 border border-border flex items-center justify-center gap-2">
+        {/* Download CV Button */}
+        <motion.button
+          variants={itemVariants}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors duration-300 border border-border flex items-center justify-center gap-2"
+        >
           <svg
             className="w-5 h-5"
             fill="none"
@@ -147,8 +180,8 @@ export function SidebarProfile({
             />
           </svg>
           Download CV
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
     </aside>
   );
 }
