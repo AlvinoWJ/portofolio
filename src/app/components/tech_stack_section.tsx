@@ -149,7 +149,6 @@ export function TechStackSection() {
           }}
         >
           {duplicatedStacks.map((tech, index) => (
-            // beri padding kiri/kanan yang cukup supaya tidak nempel ke tepi viewport
             <div key={`${tech.name}-${index}`} className="inline-flex">
               <TechStackItem tech={tech} />
             </div>

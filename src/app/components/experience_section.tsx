@@ -21,9 +21,9 @@ const experiences: ExperienceItem[] = [
   {
     id: "edu-1",
     type: "education",
-    title: "Information System",
-    institution: "UIN Syarif Hidayatullah Jakarta",
-    period: "Aug 2020 - Feb 2025",
+    title: "Informatics",
+    institution: "UPN Veteran Jawa Timur",
+    period: "Aug 2023 - Recent",
     description:
       "Fokus pada analisis sistem, manajemen database, dan pengembangan software. Menggabungkan pengetahuan teoritis dengan keterampilan praktis dalam manajemen proyek IT.",
     achievements: [
@@ -35,9 +35,9 @@ const experiences: ExperienceItem[] = [
   {
     id: "work-1",
     type: "work",
-    title: "Full Stack Developer (Contract)",
-    institution: "PT Inovasi Talenta Digital",
-    period: "May 2024 - Mar 2025",
+    title: "Frontend Developer (Intern)",
+    institution: "PT Midi Utama Indonesia tbk",
+    period: "Aug 2025 - dec 2025",
     description:
       "Mengelola deployment aplikasi menggunakan Kubernetes dan Digital Ocean, serta membangun sistem backend yang robust dengan arsitektur Microservices.",
     achievements: [
