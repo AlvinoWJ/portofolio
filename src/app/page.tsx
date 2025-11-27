@@ -38,14 +38,26 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 md:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[350px_1fr] lg:gap-12">
-          <div className="relative">
+          {/* Sidebar — Desktop tetap di kiri, Mobile pindah setelah Hero */}
+          <div className="lg:order-none order-2">
             <SidebarProfile {...profileData} />
           </div>
+
+          {/* Content kanan */}
           <div className="flex flex-col gap-10">
-            <HeroSection />
-            <TechStackSection />
-            <ProjectsSection />
-            <ExperienceSection />
+            <div className="order-1">
+              <HeroSection />
+            </div>
+
+            <div className="lg:hidden order-2">
+              <SidebarProfile {...profileData} />
+            </div>
+
+            <div className="order-3">
+              <TechStackSection />
+              <ProjectsSection />
+              <ExperienceSection />
+            </div>
           </div>
         </div>
       </div>

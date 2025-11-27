@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "framer-motion";
+import React from "react";
+import { motion, easeOut } from "framer-motion";
 
 interface Project {
   id: string;
@@ -42,9 +41,40 @@ const projects: Project[] = [
   },
 ];
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+// 1. Definisikan animasi untuk container (pembungkus)
+// Ini akan mengatur agar anak-anaknya (cards) muncul berurutan (stagger)
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Jeda 0.2 detik antar card
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: easeOut,
+    },
+  },
+};
+
+function ProjectCard({ project }: { project: Project }) {
   return (
-    <motion.div className="group relative rounded-xl overflow-hidden h-64 border border-border/50 shadow-sm">
+    // Kita hapus initial/animate manual di sini, karena akan diwariskan dari parent
+    <motion.div
+      variants={cardVariants}
+      className="group relative rounded-xl overflow-hidden h-64 border border-border/50 shadow-sm"
+    >
       {/* Background Image / Placeholder */}
       <div
         className={`absolute inset-0 w-full h-full ${project.imageClass} flex items-center justify-center transition-transform duration-500 group-hover:scale-110`}
@@ -89,138 +119,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export function ProjectsSection() {
-  const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down");
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const sectionRef = React.useRef(null);
-  const isInView = useInView(sectionRef, {
-    once: false,
-    margin: "-100px",
-  });
-
-  const titleControls = useAnimation();
-  const card1Controls = useAnimation();
-  const card2Controls = useAnimation();
-  const card3Controls = useAnimation();
-  const card4Controls = useAnimation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY) {
-        setScrollDirection("down");
-      } else {
-        setScrollDirection("up");
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
-  useEffect(() => {
-    if (isInView) {
-      const isScrollingDown = scrollDirection === "down";
-
-      // Animasi Title/Header
-      titleControls.start({
-        opacity: 1,
-        x: 0,
-        transition: {
-          duration: 0.6,
-          ease: "easeOut",
-        },
-      });
-
-      // Animasi Cards
-      if (isScrollingDown) {
-        // Dari atas ke bawah: cards muncul dari bawah
-        card1Controls.start({
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, delay: 0.1 },
-        });
-        card2Controls.start({
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, delay: 0.2 },
-        });
-        card3Controls.start({
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, delay: 0.3 },
-        });
-        card4Controls.start({
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, delay: 0.4 },
-        });
-      } else {
-        // Dari bawah ke atas: cards muncul dari samping
-        // Card kiri (1,3) dari kiri
-        card1Controls.start({
-          opacity: 1,
-          x: 0,
-          transition: { duration: 0.6, delay: 0.1, ease: "easeOut" },
-        });
-        card3Controls.start({
-          opacity: 1,
-          x: 0,
-          transition: { duration: 0.6, delay: 0.2, ease: "easeOut" },
-        });
-
-        // Card kanan (2,4) dari kanan
-        card2Controls.start({
-          opacity: 1,
-          x: 0,
-          transition: { duration: 0.6, delay: 0.1, ease: "easeOut" },
-        });
-        card4Controls.start({
-          opacity: 1,
-          x: 0,
-          transition: { duration: 0.6, delay: 0.2, ease: "easeOut" },
-        });
-      }
-    } else {
-      // Reset animasi ketika keluar viewport
-      const isScrollingDown = scrollDirection === "down";
-
-      titleControls.start({
-        opacity: 0,
-        x: isScrollingDown ? 0 : -50,
-      });
-
-      if (isScrollingDown) {
-        // Keluar ke bawah: hilang ke bawah
-        card1Controls.start({ opacity: 0, y: 30 });
-        card2Controls.start({ opacity: 0, y: 30 });
-        card3Controls.start({ opacity: 0, y: 30 });
-        card4Controls.start({ opacity: 0, y: 30 });
-      } else {
-        // Keluar ke atas: hilang ke samping
-        card1Controls.start({ opacity: 0, x: -50 });
-        card2Controls.start({ opacity: 0, x: 50 });
-        card3Controls.start({ opacity: 0, x: -50 });
-        card4Controls.start({ opacity: 0, x: 50 });
-      }
-    }
-  }, [
-    isInView,
-    scrollDirection,
-    titleControls,
-    card1Controls,
-    card2Controls,
-    card3Controls,
-    card4Controls,
-  ]);
-
   return (
-    <section id="projects" className="w-full py-8" ref={sectionRef}>
+    <section id="projects" className="w-full py-8 mt-16">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
-        animate={titleControls}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-50px" }} // Menggunakan margin yg lebih kecil agar lebih responsif
+        transition={{ duration: 0.6 }}
         className="mb-8"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -228,33 +133,32 @@ export function ProjectsSection() {
         </h2>
         <motion.div
           initial={{ width: 0 }}
-          animate={isInView ? { width: "5rem" } : { width: 0 }}
+          whileInView={{ width: "5rem" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="h-1 bg-primary rounded-full"
         />
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Card 1 - Kiri Atas */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={card1Controls}>
-          <ProjectCard project={projects[0]} index={0} />
-        </motion.div>
-
-        {/* Card 2 - Kanan Atas */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={card2Controls}>
-          <ProjectCard project={projects[1]} index={1} />
-        </motion.div>
-
-        {/* Card 3 - Kiri Bawah */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={card3Controls}>
-          <ProjectCard project={projects[2]} index={2} />
-        </motion.div>
-
-        {/* Card 4 - Kanan Bawah */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={card4Controls}>
-          <ProjectCard project={projects[3]} index={3} />
-        </motion.div>
-      </div>
+      {/* Container Grid dengan animasi Stagger.
+        'initial' dan 'whileInView' di sini akan secara otomatis 
+        mengontrol state 'hidden' dan 'visible' pada children (ProjectCard)
+        yang memiliki variants dengan nama yang sama.
+      */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{
+          once: false, // Animasi akan berulang jika scroll naik/turun (sesuai request)
+          amount: 0.1, // Animasi mulai ketika 10% elemen terlihat (lebih cepat responnya)
+        }}
+      >
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </motion.div>
     </section>
   );
 }
