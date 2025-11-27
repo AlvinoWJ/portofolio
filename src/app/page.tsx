@@ -2,6 +2,7 @@ import { HeroSection } from "./components/hero_section";
 import { ExperienceSection } from "./components/experience_section";
 import { SidebarProfile } from "./components/sidebar_profile";
 import { ProjectsSection } from "./components/projects_section";
+import { TechStackSection } from "./components/tech_stack_section";
 
 export default function Home() {
   const profileData = {
@@ -35,13 +36,14 @@ export default function Home() {
   };
   return (
     <main className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8 pt-8 md:px-8">
+      <div className="container mx-auto px-4 py-8 md:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[350px_1fr] lg:gap-12">
           <div className="relative">
             <SidebarProfile {...profileData} />
           </div>
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-10">
             <HeroSection />
+            <TechStackSection />
             <ProjectsSection />
             <ExperienceSection />
           </div>

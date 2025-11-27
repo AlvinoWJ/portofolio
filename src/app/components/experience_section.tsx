@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 
 interface Achievement {
   text: string;
@@ -8,8 +9,8 @@ interface Achievement {
 
 interface ExperienceItem {
   id: string;
-  title: string; // Role atau Jurusan
-  institution: string; // Nama PT atau Kampus
+  title: string;
+  institution: string;
   period: string;
   description: string;
   type: "work" | "education";
@@ -48,11 +49,23 @@ const experiences: ExperienceItem[] = [
   },
 ];
 
-function ExperienceCard({ item }: { item: ExperienceItem }) {
+function ExperienceCard({
+  item,
+  index,
+}: {
+  item: ExperienceItem;
+  index: number;
+}) {
   const isWork = item.type === "work";
 
   return (
-    <div className="relative group">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.15 }}
+      className="relative group"
+    >
       {/* Main Card */}
       <div className="mt-4 bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 relative overflow-hidden">
         {/* Background Gradient Decoration */}
@@ -61,7 +74,8 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-6 relative z-10">
           {/* Icon Box */}
-          <div
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: 5 }}
             className={`p-3 rounded-xl ${
               isWork
                 ? "bg-emerald-500/10 text-emerald-500"
@@ -103,7 +117,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
                 />
               </svg>
             )}
-          </div>
+          </motion.div>
 
           <div className="flex-1">
             <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
@@ -133,12 +147,10 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
           </div>
         </div>
 
-        {/* Description */}
         <p className="text-foreground/80 leading-relaxed mb-6">
           {item.description}
         </p>
 
-        {/* Key Achievements (Style seperti Gambar 1) */}
         {item.achievements && (
           <div>
             <h4
@@ -150,7 +162,14 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
             </h4>
             <ul className="space-y-3">
               {item.achievements.map((ach, i) => (
-                <li key={i} className="flex items-start gap-3">
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.05 }}
+                  className="flex items-start gap-3"
+                >
                   <div
                     className={`mt-1 p-0.5 rounded-full ${
                       isWork ? "bg-emerald-500/20" : "bg-amber-500/20"
@@ -175,13 +194,13 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
                   <span className="text-sm text-muted-foreground leading-snug">
                     {ach.text}
                   </span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -191,28 +210,38 @@ export function ExperienceSection() {
 
   return (
     <section id="experience" className="w-full py-12">
-      <div className="text-center mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16"
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           Resume <span className="text-primary">& Journey</span>
         </h2>
-        <div className="h-1 w-20 bg-primary rounded-full mx-auto"></div>
-      </div>
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "5rem" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="h-1 bg-primary rounded-full mx-auto"
+        />
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-        {/* Kolom Kiri: Education */}
         <div>
           <div className="flex flex-col gap-8">
-            {educationData.map((item) => (
-              <ExperienceCard key={item.id} item={item} />
+            {educationData.map((item, index) => (
+              <ExperienceCard key={item.id} item={item} index={index} />
             ))}
           </div>
         </div>
 
-        {/* Kolom Kanan: Work History */}
         <div>
           <div className="flex flex-col gap-8">
-            {workData.map((item) => (
-              <ExperienceCard key={item.id} item={item} />
+            {workData.map((item, index) => (
+              <ExperienceCard key={item.id} item={item} index={index} />
             ))}
           </div>
         </div>
