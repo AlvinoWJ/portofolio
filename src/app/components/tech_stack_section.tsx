@@ -117,7 +117,7 @@ export function TechStackSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mb-8 text-center"
+        className="mb-16 text-center"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
           Tech <span className="text-primary">Stack</span>
@@ -131,7 +131,7 @@ export function TechStackSection() {
         />
       </motion.div>
 
-      <div className="relative w-full overflow-hidden px-6 min-h-full mb-16">
+      <div className="relative w-full overflow-hidden px-6 min-h-28 mb-16">
         <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
 
