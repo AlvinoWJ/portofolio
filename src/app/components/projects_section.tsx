@@ -69,7 +69,7 @@ function ProjectCard({ project }: { project: (typeof projectsData)[0] }) {
           {project.title}
         </h3>
         <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-          {project.shortDescription}
+          {project.Description}
         </p>
 
         {/* Update Link Disini */}
