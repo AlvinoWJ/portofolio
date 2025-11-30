@@ -25,11 +25,11 @@ const experiences: ExperienceItem[] = [
     institution: "UPN Veteran Jawa Timur",
     period: "Aug 2023 - Recent",
     description:
-      "Fokus pada analisis sistem, manajemen database, dan pengembangan software. Menggabungkan pengetahuan teoritis dengan keterampilan praktis dalam manajemen proyek IT.",
+      "As an Informatics student at UPN Veteran Jawa Timur, I have developed strong foundations in system analysis, database management, and software engineering. My academic journey blends theoretical understanding with hands-on project experience, especially in building efficient and scalable applications. Alongside my coursework, I am also deeply interested in web development, DevOps practices, and exploring SecOps as a future specialization.",
     achievements: [
-      { text: "Expertise in System Analysis & Design" },
-      { text: "Database Management Proficiency" },
-      { text: "IT Project Management" },
+      { text: "System Analysis & Software Design" },
+      { text: "Web Development (Frontend)" },
+      { text: "DevOps Fundamentals (CI/CD, automation, deployment workflow)" },
     ],
   },
   {
@@ -39,12 +39,21 @@ const experiences: ExperienceItem[] = [
     institution: "PT Midi Utama Indonesia tbk",
     period: "Aug 2025 - dec 2025",
     description:
-      "Mengelola deployment aplikasi menggunakan Kubernetes dan Digital Ocean, serta membangun sistem backend yang robust dengan arsitektur Microservices.",
+      "During my internship at PT Midi Utama Indonesia Tbk (Alfamidi), I was responsible for transforming UI/UX designs into responsive and maintainable code using modern frontend technologies. I integrated backend APIs to enable dynamic data flow across the application and ensured smooth user interaction. Additionally, I handled deployment processes using Vercel and containerized environments with Docker, gaining hands-on experience in delivering production-ready frontend solutions with clean architecture and optimized workflows.",
     achievements: [
-      { text: "Orchestrated containerized app deployment using Kubernetes" },
-      { text: "Implemented CI/CD pipelines for high availability" },
-      { text: "Designed optimized database schemas & complex SQL queries" },
-      { text: "Integrated Google Maps Geocoding & 3rd Party APIs" },
+      {
+        text: "Converted UI/UX designs into responsive, high-quality frontend components",
+      },
+      {
+        text: "Integrated RESTful APIs for dynamic data fetching and state management",
+      },
+      { text: "Deployed production applications using Vercel and Docker" },
+      {
+        text: "Ensured code quality through reusable components and clean architecture",
+      },
+      {
+        text: "Collaborated with backend teams to optimize API integration and workflow",
+      },
     ],
   },
 ];

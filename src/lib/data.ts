@@ -41,10 +41,11 @@ export const projectsData: Project[] = [
       github: "https://github.com/AlvinoWJ/gigblocks",
     },
     features: [
-      "Smart Contract Job Management",
-      "ENS Reputation System",
-      "Transparent Payments",
-      "Global Access",
+      "Integrated Store Opening Process Management",
+      "Executive Dashboard & Analytics",
+      "Granular Progress Tracking & Approval",
+      "Existing Store Database Management",
+      "External Proposal Integration (Midiland)",
     ],
     galleryImages: [
       "/projects/MidiLoc/img_1.svg",
@@ -63,7 +64,7 @@ export const projectsData: Project[] = [
     id: "Midiland",
     title: "Midiland",
     Description:
-      "Platform freelancing terdesentralisasi yang dibangun di atas blockchain Scroll, memanfaatkan ENS untuk reputasi.",
+      "Midiland is a platform that enables property owners and investors to offer their land or building assets for potential retail expansion, providing a simple way to submit property details and monitor their evaluation progress. By centralizing submissions and status tracking in one system, Midiland ensures transparency, faster communication, and a streamlined process for connecting property providers with retail opportunities.",
     logo: "/projects/MidiLand/Midiland_logo.svg",
     MainImage: "/projects/MidiLand/img_1.svg",
     imageClass: "bg-emerald-600",
@@ -79,14 +80,15 @@ export const projectsData: Project[] = [
       "Docker",
     ],
     links: {
-      demo: "https://gigblocks.com",
-      github: "https://github.com/AlvinoWJ/gigblocks",
+      demo: "https://midiland.vercel.app/",
+      github: "https://github.com/AlvinoWJ/Midiland",
     },
     features: [
-      "Smart Contract Job Management",
-      "ENS Reputation System",
-      "Transparent Payments",
-      "Global Access",
+      "Integrated Property Submission System",
+      "Interactive Location Mapping",
+      "Real-Time Status Tracking",
+      "Smart Virtual Assistant (Milan)",
+      "Live Notification System",
     ],
     galleryImages: [
       "/projects/MidiLand/img_1.svg",
