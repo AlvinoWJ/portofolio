@@ -65,7 +65,7 @@ export const projectsData: Project[] = [
     title: "Midiland",
     Description:
       "Midiland is a platform that enables property owners and investors to offer their land or building assets for potential retail expansion, providing a simple way to submit property details and monitor their evaluation progress. By centralizing submissions and status tracking in one system, Midiland ensures transparency, faster communication, and a streamlined process for connecting property providers with retail opportunities.",
-    logo: "/projects/MidiLand/Midiland_logo.svg",
+    logo: "/projects/MidiLand/MidiLand_logo.svg",
     MainImage: "/projects/MidiLand/img_1.svg",
     imageClass: "bg-emerald-600",
 
