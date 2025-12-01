@@ -12,10 +12,25 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="p-8 md:p-12 relative group"
+        className="p-4 md:p-12 relative group"
       >
         <div className="flex flex-col items-center justify-center gap-12">
-          <div className="flex flex-col gap-6 z-10 items-center w-full mt-10">
+          <div className="flex flex-col gap-6 z-10 items-center w-full mt-6">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-secondary/30 backdrop-blur-sm"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span className="md:text-sm text-xs font-medium text-muted-foreground">
+                Web Developer Intern at PT Midi Utama Indonesia Tbk
+              </span>
+            </motion.div>
+
             {/* Title */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}

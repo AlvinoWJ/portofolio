@@ -21,7 +21,7 @@ export default function Home() {
 
   const profileData = {
     name: "Alvino Dwi Nengku Wijaya",
-    title: "Fullstack Developer",
+    title: "Fullstack Developer | IT Enthusiast",
     subtitle: "",
     imageSrc: "/alvino.png",
     profileInfo: {

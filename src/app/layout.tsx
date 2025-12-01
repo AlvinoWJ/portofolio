@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "Alvino Wijaya - FullStack Developer",
   description:
     "Portfolio website of Alvino Dwi Nengku Wijaya, a passionate Full-Stack Website Developer from Indonesia",
+  icons: {
+    icon: "/alvino.svg",
+  },
 };
 
 export default function RootLayout({

@@ -27,7 +27,7 @@ interface SidebarProfileProps {
 }
 
 const SocialIcon = ({ icon }: { icon: SocialLink["icon"] }) => {
-  const iconClass = "w-5 h-5";
+  const iconClass = "w-6 h-6";
 
   switch (icon) {
     case "linkedin":
@@ -192,7 +192,7 @@ export function SidebarProfile({
         {/* Social Links */}
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-3 justify-items-center mb-6"
+          className="flex items-center justify-center gap-6 mb-6"
         >
           {socialLinks.map((link, index) => (
             <motion.a
