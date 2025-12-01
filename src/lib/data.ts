@@ -38,7 +38,7 @@ export const projectsData: Project[] = [
     ],
     links: {
       demo: "https://midiloc.vercel.app/",
-      github: "https://github.com/AlvinoWJ/gigblocks",
+      github: "https://github.com/AlvinoWJ/Midiloc",
     },
     features: [
       "Integrated Store Opening Process Management",
