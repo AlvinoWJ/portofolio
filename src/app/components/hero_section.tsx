@@ -3,11 +3,11 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
     <section id="home" className="w-full">
-      {/* Wrapper Card */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -26,12 +26,11 @@ export function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-              <span className="md:text-sm text-xs font-medium text-muted-foreground">
+              <span className="md:text-sm text-[10px] font-medium text-muted-foreground">
                 Web Developer Intern at PT Midi Utama Indonesia Tbk
               </span>
             </motion.div>
 
-            {/* Title */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -47,7 +46,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-muted-foreground font-mono text-sm lg:text-base font-medium text-center leading-relaxed"
+              className="text-muted-foreground font-mono text-[12px] md:text-base font-medium text-center leading-relaxed"
             >
               <span className="text-primary font-bold mr-2">&lt;code&gt;</span>
 
@@ -77,28 +76,30 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 mt-4 justify-center w-full sm:w-auto"
+              className="flex flex-col sm:flex-row gap-4 mt-4 justify-center items-center w-full sm:w-auto"
             >
-              <motion.button
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
-              >
-                Lihat Proyek
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              <Link href="#projects">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold flex items-center justify-center gap-2 shadow-lg"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </motion.button>
+                  Lihat Proyek
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </div>

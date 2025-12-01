@@ -208,7 +208,7 @@ export default function ProjectDetailPage() {
           </motion.div>
 
           {/* Bagian Atas: Gambar Utama & Deskripsi */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 pb-10">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -282,13 +282,13 @@ export default function ProjectDetailPage() {
           </div>
 
           {/* Bagian Tengah: Tech Stack & Key Features */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-              className="bg-card border border-border rounded-2xl p-8 h-full"
+              className="bg-card border border-border rounded-2xl p-6 shadow-sm h-full"
             >
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Tech <span className="text-primary">Stack</span>
@@ -316,7 +316,7 @@ export default function ProjectDetailPage() {
                   type: "spring",
                   bounce: 0.4,
                 }}
-                className="bg-card border border-border rounded-2xl p-8 h-full"
+                className="bg-card border border-border rounded-xl p-6 shadow-sm h-full"
               >
                 <h3 className="text-2xl font-bold text-foreground mb-6">
                   Key <span className="text-primary">Features</span>
@@ -325,9 +325,9 @@ export default function ProjectDetailPage() {
                   {project.features.map((feature, index) => (
                     <li
                       key={index}
-                      className="flex items-center gap-3 text-muted-foreground"
+                      className="flex items-start gap-3 text-muted-foreground"
                     >
-                      <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
+                      <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -336,13 +336,13 @@ export default function ProjectDetailPage() {
             )}
           </div>
           {project.galleryImages && project.galleryImages.length > 0 && (
-            <section className="w-full pt-10 border-t border-border/50">
+            <section className="w-full pt-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5 }}
-                className="mb-10"
+                className="mb-8"
               >
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                   Project <span className="text-primary">Result</span>

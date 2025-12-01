@@ -71,8 +71,9 @@ function ExperienceCard({
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: false, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
+      whileHover="hover"
       className="relative group"
     >
       {/* Main Card */}
@@ -84,8 +85,11 @@ function ExperienceCard({
         <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-6 relative z-10">
           {/* Icon Box */}
           <motion.div
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            className={`p-3 rounded-xl ${
+            variants={{
+              hover: { scale: 1.1, rotate: 10 },
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            className={`p-3 rounded-xl w-fit ${
               isWork
                 ? "bg-emerald-500/10 text-emerald-500"
                 : "bg-amber-500/10 text-amber-500"
@@ -175,7 +179,7 @@ function ExperienceCard({
                   key={i}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.3, delay: i * 0.05 }}
                   className="flex items-start gap-3"
                 >
@@ -222,9 +226,9 @@ export function ExperienceSection() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-16"
+        className="text-center mb-6"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           Resume <span className="text-primary">& Journey</span>
@@ -232,7 +236,7 @@ export function ExperienceSection() {
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: "5rem" }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="h-1 bg-primary rounded-full mx-auto"
         />

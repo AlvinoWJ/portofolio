@@ -97,7 +97,7 @@ function ProjectCard({ project }: { project: (typeof projectsData)[0] }) {
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="w-full py-8 mt-4">
+    <section id="projects" className="w-full py-12">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
