@@ -3,8 +3,7 @@
 export interface Project {
   id: string;
   title: string;
-  shortDescription: string;
-  fullDescription: string;
+  Description: string;
   imageClass: string;
   logo?: string;
   MainImage?: string;
@@ -14,86 +13,106 @@ export interface Project {
     github?: string;
   };
   features?: string[];
+  galleryImages?: string[];
 }
 
 export const projectsData: Project[] = [
   {
     id: "Midiloc",
     title: "Midiloc",
-    shortDescription:
-      "Platform freelancing terdesentralisasi yang dibangun di atas blockchain Scroll, memanfaatkan ENS untuk reputasi.",
+    Description:
+      "Midiloc is a centralized platform that streamlines retail expansion by simplifying proposal submissions, document collection, multi-role approvals, and progress tracking. It reduces processing time, improves transparency, and serves as an integrated end-to-end solution for accelerating new store openings.",
     logo: "/projects/Midiloc/MidiLoc_logo.svg",
     MainImage: "/projects/Midiloc/dashboard.svg",
     imageClass: "bg-emerald-600",
-    fullDescription:
-      "Midiloc is a centralized data and workflow platform designed to streamline the entire retail expansion process from proposal submission and document collection to multi-role approval and progress tracking addressing the inefficiencies and delays commonly found in traditional store-opening procedures. By unifying all stakeholders in a single integrated system and enabling role-based actions for input, review, and approval, Midiloc significantly reduces processing time, enhances transparency, and improves operational efficiency, ultimately becoming a comprehensive end-to-end solution for accelerating new store openings in retail companies.",
+
     techStack: [
       "Next.js",
       "Tailwind CSS",
       "React",
       "TypeScript",
-      "Solidity",
-      "Ethers.js",
-      "Scroll",
-      "ENS",
-      "WAGMI",
-      "IPFS",
-      "Pinata",
-      "Hardhat",
+      "postgreSQL",
+      "Supabase",
+      "Vercel",
+      "Docker",
     ],
     links: {
       demo: "https://gigblocks.com",
       github: "https://github.com/AlvinoWJ/gigblocks",
     },
     features: [
-      "Smart Contract Job Management",
-      "ENS Reputation System",
-      "Transparent Payments",
-      "Global Access",
+      "Integrated Store Opening Process Management",
+      "Executive Dashboard & Analytics",
+      "Granular Progress Tracking & Approval",
+      "Existing Store Database Management",
+      "External Proposal Integration (Midiland)",
+    ],
+    galleryImages: [
+      "/projects/MidiLoc/img_1.svg",
+      "/projects/MidiLoc/dashboard.svg",
+      "/projects/MidiLoc/img_2.svg",
+      "/projects/MidiLoc/img_3.svg",
+      "/projects/MidiLoc/img_4.svg",
+      "/projects/MidiLoc/img_5.svg",
+      "/projects/MidiLoc/img_6.svg",
+      "/projects/MidiLoc/img_7.svg",
+      "/projects/MidiLoc/img_8.svg",
+      "/projects/MidiLoc/img_9.svg",
     ],
   },
   {
     id: "Midiland",
     title: "Midiland",
-    shortDescription:
-      "Platform freelancing terdesentralisasi yang dibangun di atas blockchain Scroll, memanfaatkan ENS untuk reputasi.",
-    logo: "/projects/MidiLand_logo.svg",
-    MainImage: "/projects/MidiLand_logo.svg",
+    Description:
+      "Midiland is a platform that enables property owners and investors to offer their land or building assets for potential retail expansion, providing a simple way to submit property details and monitor their evaluation progress. By centralizing submissions and status tracking in one system, Midiland ensures transparency, faster communication, and a streamlined process for connecting property providers with retail opportunities.",
+    logo: "/projects/MidiLand/Midiland_logo.svg",
+    MainImage: "/projects/MidiLand/img_1.svg",
     imageClass: "bg-emerald-600",
-    fullDescription:
-      "GigBlocks is a decentralized freelancing platform built on Scroll blockchain, leveraging ENS for reputation management. It aims to solve issues of traditional freelance platforms by offering transparency, global access, and fair treatment of freelancers. Key features include smart contract-based job management, ENS-powered reputation system, and future plans for ZK-based privacy features.",
+
     techStack: [
       "Next.js",
       "Tailwind CSS",
       "React",
       "TypeScript",
-      "Solidity",
-      "Ethers.js",
-      "Scroll",
-      "ENS",
-      "WAGMI",
-      "IPFS",
-      "Pinata",
-      "Hardhat",
+      "postgreSQL",
+      "Supabase",
+      "Vercel",
+      "Docker",
     ],
     links: {
-      demo: "https://gigblocks.com",
-      github: "https://github.com/AlvinoWJ/gigblocks",
+      demo: "https://midiland.vercel.app/",
+      github: "https://github.com/AlvinoWJ/Midiland",
     },
     features: [
-      "Smart Contract Job Management",
-      "ENS Reputation System",
-      "Transparent Payments",
-      "Global Access",
+      "Integrated Property Submission System",
+      "Interactive Location Mapping",
+      "Real-Time Status Tracking",
+      "Smart Virtual Assistant (Milan)",
+      "Live Notification System",
+    ],
+    galleryImages: [
+      "/projects/MidiLand/img_1.svg",
+      "/projects/MidiLand/img_2.svg",
+      "/projects/MidiLand/img_3.svg",
+      "/projects/MidiLand/img_4.svg",
+      "/projects/MidiLand/img_5.svg",
+      "/projects/MidiLand/img_6.svg",
+      "/projects/MidiLand/img_7.svg",
+      "/projects/MidiLand/img_8.svg",
+      "/projects/MidiLand/img_9.svg",
+      "/projects/MidiLand/img_10.svg",
+      "/projects/MidiLand/img_11.svg",
+      "/projects/MidiLand/img_12.svg",
+      "/projects/MidiLand/img_13.svg",
     ],
   },
   {
     id: "eventify",
     title: "Eventify Platform",
-    shortDescription:
+    Description:
       "Sebuah platform manajemen event komprehensif yang memudahkan penyelenggara dalam mengatur tiket.",
     imageClass: "bg-indigo-600",
-    fullDescription: "Detail lengkap tentang Eventify...",
+
     techStack: ["React", "Node.js", "PostgreSQL"],
     links: {},
   },

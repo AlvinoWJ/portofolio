@@ -6,13 +6,6 @@ import { motion, easeOut } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  imageClass: string;
-}
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -42,7 +35,7 @@ function ProjectCard({ project }: { project: (typeof projectsData)[0] }) {
   return (
     <motion.div
       variants={cardVariants}
-      className="group relative rounded-xl overflow-hidden h-64 border border-border/50 shadow-sm"
+      className="group relative rounded-xl overflow-hidden h-64 border border-border shadow-sm"
     >
       <div
         className={`absolute inset-0 w-full h-full ${project.imageClass} flex items-center justify-center transition-transform duration-500 group-hover:scale-110`}
@@ -69,7 +62,7 @@ function ProjectCard({ project }: { project: (typeof projectsData)[0] }) {
           {project.title}
         </h3>
         <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-          {project.shortDescription}
+          {project.Description}
         </p>
 
         {/* Update Link Disini */}
@@ -108,7 +101,7 @@ export function ProjectsSection() {
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: false, margin: "-50px" }}
         transition={{ duration: 0.6 }}
         className="mb-8"
       >
@@ -118,7 +111,7 @@ export function ProjectsSection() {
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: "5rem" }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="h-1 bg-primary rounded-full"
         />
