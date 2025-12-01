@@ -22,8 +22,8 @@ export const projectsData: Project[] = [
     title: "Midiloc",
     Description:
       "Midiloc is a centralized platform that streamlines retail expansion by simplifying proposal submissions, document collection, multi-role approvals, and progress tracking. It reduces processing time, improves transparency, and serves as an integrated end-to-end solution for accelerating new store openings.",
-    logo: "/projects/Midiloc/MidiLoc_logo.svg",
-    MainImage: "/projects/Midiloc/dashboard.svg",
+    logo: "/projects/MidiLoc/MidiLoc_logo.svg",
+    MainImage: "/projects/MidiLoc/dashboard.svg",
     imageClass: "bg-emerald-600",
 
     techStack: [
@@ -108,7 +108,6 @@ export const projectsData: Project[] = [
   },
 ];
 
-// Helper function untuk mengambil data
 export function getProjectById(id: string) {
   return projectsData.find((project) => project.id === id);
 }
