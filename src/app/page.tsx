@@ -11,29 +11,27 @@ import { AnimatePresence } from "framer-motion";
 import { useLoading } from "./context/loading_context";
 
 export default function Home() {
-  const { hasLoaded, setHasLoaded } = useLoading(); // Ambil status dari global
-  const [isLoading, setIsLoading] = useState(!hasLoaded); // Jika hasLoaded true, isLoading false (skip)
+  const { hasLoaded, setHasLoaded } = useLoading();
+  const [isLoading, setIsLoading] = useState(!hasLoaded);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    setHasLoaded(true); // Tandai bahwa home sudah pernah dimuat
+    setHasLoaded(true);
   };
 
   const profileData = {
     name: "Alvino Dwi Nengku Wijaya",
     title: "Fullstack Developer | IT Enthusiast",
-    subtitle: "",
     imageSrc: "/alvino.png",
     profileInfo: {
-      residence: "Indonesia",
-      city: "Surabaya",
-      age: "19",
+      university: 'Universitas Pembangunan Nasional "Veteran" Jawa Timur',
+      location: "Surabaya City - Indonesia",
     },
 
     socialLinks: [
       {
         icon: "linkedin" as const,
-        href: "www.linkedin.com/in/alvinowj",
+        href: "https://www.linkedin.com/in/alvinowj",
         label: "LinkedIn",
       },
       {
@@ -60,7 +58,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8 md:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[350px_1fr] lg:gap-12">
             {/* Sidebar — Desktop tetap di kiri, Mobile pindah setelah Hero */}
-            <div className="lg:order-none order-2">
+            <div className="hidden lg:block lg:order-none order-2">
               <SidebarProfile {...profileData} />
             </div>
 

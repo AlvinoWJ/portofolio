@@ -12,16 +12,14 @@ interface SocialLink {
 }
 
 interface ProfileInfo {
-  residence: string;
-  city: string;
-  age: string;
+  university: string;
+  location: string;
 }
 
 interface SidebarProfileProps {
   name: string;
   title: string;
   imageSrc?: string;
-  subtitle: string;
   profileInfo: ProfileInfo;
   socialLinks: SocialLink[];
 }
@@ -74,7 +72,6 @@ const itemVariants = {
 export function SidebarProfile({
   name,
   title,
-  subtitle,
   imageSrc,
   profileInfo,
   socialLinks,
@@ -118,7 +115,6 @@ export function SidebarProfile({
         <motion.div variants={itemVariants} className="text-center mb-4">
           <h2 className="text-xl font-bold text-foreground mb-1">{name}</h2>
           <p className="text-sm text-muted-foreground">{title}</p>
-          <p className="text-sm text-muted-foreground">{subtitle}</p>
         </motion.div>
 
         {/* Profile Info */}
@@ -152,7 +148,7 @@ export function SidebarProfile({
             <div className="flex-1 min-w-0">
               <p className="text-xs text-muted-foreground mb-0.5">Education</p>
               <p className="text-sm font-medium text-foreground leading-tight">
-                Universitas Pembangunan Nasioanl "Veteran" Jawa Timur
+                {profileInfo.university}
               </p>
             </div>
           </div>
@@ -183,7 +179,7 @@ export function SidebarProfile({
             <div className="flex-1 min-w-0">
               <p className="text-xs text-muted-foreground mb-0.5">Location</p>
               <p className="text-sm font-medium text-foreground leading-tight">
-                Surabaya City - Indonesia
+                {profileInfo.location}
               </p>
             </div>
           </div>

@@ -37,7 +37,7 @@ export const projectsData: Project[] = [
       "Docker",
     ],
     links: {
-      demo: "https://gigblocks.com",
+      demo: "https://midiloc.vercel.app/",
       github: "https://github.com/AlvinoWJ/gigblocks",
     },
     features: [
@@ -105,16 +105,6 @@ export const projectsData: Project[] = [
       "/projects/MidiLand/img_12.svg",
       "/projects/MidiLand/img_13.svg",
     ],
-  },
-  {
-    id: "eventify",
-    title: "Eventify Platform",
-    Description:
-      "Sebuah platform manajemen event komprehensif yang memudahkan penyelenggara dalam mengatur tiket.",
-    imageClass: "bg-indigo-600",
-
-    techStack: ["React", "Node.js", "PostgreSQL"],
-    links: {},
   },
 ];
 
